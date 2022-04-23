@@ -22,7 +22,7 @@ los partidos, jugadores, torneos y localidades de los diferentes equipos de soft
 > Dentro del proyecto PHP-Laravel:
     Los usuarios con el rol de edición podrán:
         -Cargar, editar o eliminar jugadores
-        -Cargar, editar o eliminar equipos
+        -Cargar, editar o eliminar equipos.
         -Cargar, editar o eliminar partidos
         -Cargar, editar o eliminar torneos
         -Cargar, editar o eliminar localidades
