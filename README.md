@@ -1,64 +1,47 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Proyecto Inicial
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Idea a Implementar
 
-## About Laravel
+> La idea principal es poder implementar un conjunto de aplicaciones que permitan administrar una base de datos
+asociadas a un equipo deportivo, y consultarlos a través de distintos campos o criterios.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tema y Conexión
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> El tema propuesto para llevar a cabo los proyectos, es el de diseñar una aplicación que permita administrar
+los partidos, jugadores, torneos y localidades de los diferentes equipos de softball de bahia blanca.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Diagrama ER
 
-## Learning Laravel
+> Se debe incluir un Diagrama ER de los datos a utilizar
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![ERD con entidades coloreadas (notación UML)](https://user-images.githubusercontent.com/81689515/164911475-8f747fb5-714e-481c-b911-9d9f3d5ad29a.png)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Actualizaciones a los datos
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+> Dentro del proyecto PHP-Laravel:
+    Los usuarios con el rol de edición podrán:
+        -Cargar, editar o eliminar jugadores
+        -Cargar, editar o eliminar equipos.
+        -Cargar, editar o eliminar partidos
+        -Cargar, editar o eliminar torneos
+        -Cargar, editar o eliminar localidades
+    
+    Los usuarios con el rol de administrador podrán:
+        -Administrar usuarios
+        -Mismos permisos que los usuarios con el rol de edición
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+## Información del Servicio Web
 
-## Contributing
+> El servicio web permitirá acceder a distintos datos a través de los siguientes campos:
+    -Fecha de partido
+    -Nombre de equipo
+    -Estado del encuentro (finalizado, suspendido o aplazado)
+    -Nombre de jugadores
+    -Nombre de torneo
+    -Por localidad
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Visualización y Acceso a la Información
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> El proyecto en React/Vue permitirá al usuario consultar un partido o jugador, agregando campos o filtros necesarios para que la búsqueda sea amigable. Por ejemplo, el usuario puede ingresar un texto para filtrar partidos por nombre de torneo disputado, por ejemplo Primaveral, o consultar el promedio de un jugador a través de su apellido.
