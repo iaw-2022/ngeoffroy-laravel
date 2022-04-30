@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Route::resource('/dash', DashboardController::class)->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('equipos', function(){
+    return "pagina para equipos";
+});
+
+Route::get('jugadores', function(){
+    return "pagina para jugadores";
+});
+
+Route::get('torneos', function(){
+    return "pagina para torneos";
+});
+
+Route::get('localidades', function(){
+    return "pagina para localidades";
+});
+
+Route::get('partidos', function(){
+    return "pagina para partidos";
+});
+
 
 require __DIR__.'/auth.php';
