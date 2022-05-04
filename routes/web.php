@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EquipoController;
+use App\Http\Controllers\JugadorController;
+use App\Http\Controllers\LocalidadController;
+use App\Http\Controllers\TorneoController;
+use App\Http\Controllers\PartidoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,25 +29,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('equipos', function(){
-    return "pagina para equipos";
-});
+Route::get('/equipos', 'App\Http\Controllers\EquipoController@index')->middleware('auth');
 
-Route::get('jugadores', function(){
-    return "pagina para jugadores";
-});
+Route::get('/jugadores', 'App\Http\Controllers\JugadorController@index')->middleware('auth');
 
-Route::get('torneos', function(){
-    return "pagina para torneos";
-});
+Route::get('/localidades', 'App\Http\Controllers\LocalidadController@index')->middleware('auth');
 
-Route::get('localidades', function(){
-    return "pagina para localidades";
-});
+Route::get('/torneos', 'App\Http\Controllers\TorneoController@index')->middleware('auth');
 
-Route::get('partidos', function(){
-    return "pagina para partidos";
-});
+Route::get('/partidos', 'App\Http\Controllers\PartidoController@index')->middleware('auth');
 
 
 require __DIR__.'/auth.php';

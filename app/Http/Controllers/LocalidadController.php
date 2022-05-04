@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\localidad;
 use App\Http\Requests\StorelocalidadRequest;
 use App\Http\Requests\UpdatelocalidadRequest;
+use Illuminate\Support\Facades\DB;
 
 class LocalidadController extends Controller
 {
@@ -15,7 +16,8 @@ class LocalidadController extends Controller
      */
     public function index()
     {
-        //
+        $localidades = DB::table('localidads')->get();
+        return view ('localidad.index',['localidads' => $localidades]);
     }
 
     /**

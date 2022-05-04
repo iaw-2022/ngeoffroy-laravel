@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\jugador;
 use App\Http\Requests\StorejugadorRequest;
 use App\Http\Requests\UpdatejugadorRequest;
+use Illuminate\Support\Facades\DB;
 
 class JugadorController extends Controller
 {
@@ -15,7 +16,8 @@ class JugadorController extends Controller
      */
     public function index()
     {
-        //
+        $jugadores = DB::table('jugadors')->get();
+        return view ('jugador.index',['jugadors' => $jugadores]);
     }
 
     /**

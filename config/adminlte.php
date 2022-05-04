@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>ABS</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/abs_logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -127,7 +127,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-danger elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => '/dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -247,17 +247,36 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'text'        => 'tablero',
+            'url'         => '/dashboard',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Equipos',
+            'url'  => 'equipos',
+            'icon' => 'fas fa-fw fa-users',
+        ],
+        [
+            'text' => 'Partidos',
+            'url'  => 'partidos',
+            'icon' => 'fas fa-fw fa-futbol',
+        ],
+        [
+            'text' => 'Jugadores',
+            'url'  => 'jugadores',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Torneos',
+            'url'  => 'torneos',
+            'icon' => 'fas fa-fw fa-trophy',
+        ],
+        [
+            'text' => 'Localidades',
+            'url'  => 'localidades',
+            'icon' => 'fas fa-fw fa-city',
         ],
         [
             'text' => 'change_password',

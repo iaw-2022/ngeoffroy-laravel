@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\partido;
 use App\Http\Requests\StorepartidoRequest;
 use App\Http\Requests\UpdatepartidoRequest;
+use Illuminate\Support\Facades\DB;
 
 class PartidoController extends Controller
 {
@@ -15,7 +16,8 @@ class PartidoController extends Controller
      */
     public function index()
     {
-        //
+        $partidos = DB::table('partidos')->get();
+        return view ('partido.index',['partidos' => $partidos]);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\torneo;
 use App\Http\Requests\StoretorneoRequest;
 use App\Http\Requests\UpdatetorneoRequest;
+use Illuminate\Support\Facades\DB;
 
 class TorneoController extends Controller
 {
@@ -15,7 +16,8 @@ class TorneoController extends Controller
      */
     public function index()
     {
-        //
+        $torneos = DB::table('torneos')->get();
+        return view ('torneo.index',['torneos' => $torneos]);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\equipo;
 use App\Http\Requests\StoreequipoRequest;
 use App\Http\Requests\UpdateequipoRequest;
+use Illuminate\Support\Facades\DB;
 
 class EquipoController extends Controller
 {
@@ -15,7 +16,8 @@ class EquipoController extends Controller
      */
     public function index()
     {
-        //
+        $equipos = DB::table('equipos')->get();
+        return view ('equipo.index',['equipos' => $equipos]);
     }
 
     /**
