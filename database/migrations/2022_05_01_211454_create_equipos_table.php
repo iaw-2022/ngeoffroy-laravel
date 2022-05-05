@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nombre')->unique();
-            $table->binary('logo');
+            $table->string('logo');
             $table->string('nombre_estadio');
             $table->string('capitan');
         });

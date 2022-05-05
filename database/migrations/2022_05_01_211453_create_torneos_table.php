@@ -18,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nombre');
-            $table->binary('logo');
+            $table->string('logo');
             $table->date('fecha_ini');
             $table->date('fecha_fin');
         });

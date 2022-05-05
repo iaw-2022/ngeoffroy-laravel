@@ -6,6 +6,7 @@ use App\Models\equipo;
 use App\Http\Requests\StoreequipoRequest;
 use App\Http\Requests\UpdateequipoRequest;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class EquipoController extends Controller
 {
@@ -25,9 +26,11 @@ class EquipoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($request)
     {
-        //
+        Equipo::create($request->all());
+
+        return back(); 
     }
 
     /**

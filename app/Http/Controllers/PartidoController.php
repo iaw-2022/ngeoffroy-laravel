@@ -27,7 +27,6 @@ class PartidoController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -60,7 +59,6 @@ class PartidoController extends Controller
      */
     public function edit(partido $partido)
     {
-        //
     }
 
     /**
@@ -83,6 +81,5 @@ class PartidoController extends Controller
      */
     public function destroy(partido $partido)
     {
-        //
     }
 }

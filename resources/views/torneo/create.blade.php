@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Equipos')
+@section('title', 'Torneos')
 
 @section('content_header')
-    <h1>Equipos Vigentes</h1>
+    <h1>Torneos</h1>
 @stop
 
 @section('content')
@@ -14,20 +14,18 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Logo</th>
-                        <th>Estadio Local</th>
-                        <th>Capitan</th>
+                        <th>Fecha de Inicio</th>
+                        <th>Fecha de Finalización</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($equipos as $equipo)
+                    @foreach ($torneos as $torneo)
                     <tr>
-                        <td>{{$equipo->nombre}}</td>
-                        <td id="preview">
-                            <img class="myImages" id="myImg" src="{{$equipo->logo}}" alt="" width="140px;" height="90px;"/>
-                        </td>
-                        <td>{{$equipo->nombre_estadio}}</td>
-                        <td>{{$equipo->capitan}}</td>
+                        <td>{{$torneo->nombre}}</td>
+                        <td>'logo'</td>
+                        <td>{{$torneo->fecha_ini}}</td>
+                        <td>{{$torneo->fecha_fin}}</td>
                         <td>EDITAR</td>
                         <td>ELIMINAR</td>
                     @endforeach

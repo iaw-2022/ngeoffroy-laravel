@@ -18,31 +18,31 @@ class EquipoSeeder extends Seeder
         $data = [
             [
                 "nombre" => "Club Indios",
-                "logo" => "null",
+                "logo" => "https://drive.google.com/uc?export=view&id=1Z5vDBV4jvGQq0L-rV5X6PM_Xl4e7EjJN",
                 "nombre_estadio" => "Poli",
                 "capitan" => "Piri"
             ],
             [
                 "nombre" => "Club El Nacional",
-                "logo" => "null",
+                "logo" => "https://drive.google.com/uc?export=view&id=1k46olutVnDhBWYyiAAqM73lJ6uptE3OR",
                 "nombre_estadio" => "Nacional",
                 "capitan" => "Ruso Fernandez"
             ],
             [
                 "nombre" => "Club Liniers",
-                "logo" => "null",
+                "logo" => "https://drive.google.com/uc?export=view&id=1e7kjot_VW95NkI0OTnMYvnEjYbP4AFc_",
                 "nombre_estadio" => "Zibechi",
                 "capitan" => "Juan Pintos"
             ],
             [
                 "nombre" => "Gremio",
-                "logo" => "null",
+                "logo" => "https://drive.google.com/uc?export=view&id=1Dx-Nx32lYMGsqdsosNSQcIOlCjC5FQ3f",
                 "nombre_estadio" => "Parque",
                 "capitan" => "Marcos"
             ],
             [
                 "nombre" => "Bahia Softball",
-                "logo" => "null",
+                "logo" => "https://drive.google.com/uc?export=view&id=1jXap3Ow0k5CGvL9MMwccbpXlis7s14BM",
                 "nombre_estadio" => "Parque",
                 "capitan" => "Hugo"
             ],

@@ -17,16 +17,16 @@ class TorneoSeeder extends Seeder
     {
         $data = [
             [
-                "nombre" => "Primaveral",
-                "logo" => "null",
-                "fecha_ini" => "2022-05-22",
-                "fecha_fin" => "2022-10-19"
+                "nombre" => "Jorge Cáceres",
+                "logo" => "https://drive.google.com/uc?export=view&id=1er4Yfkw94Sz4qGWfGfVzQKBHbR3IWroc",
+                "fecha_ini" => "2022-04-29",
+                "fecha_fin" => "2022-05-01"
             ],
             [
                 "nombre" => "Invernal",
-                "logo" => "null",
-                "fecha_ini" => "2022-03-08",
-                "fecha_fin" => "2022-4-29"
+                "logo" => "https://drive.google.com/uc?export=view&id=1_gq45_MjlZmKWBiJSZX4NdjnSezbuEIS",
+                "fecha_ini" => "2019-11-18",
+                "fecha_fin" => "2019-11-21"
             ]
         ];
         DB::table('torneos')->insert($data);

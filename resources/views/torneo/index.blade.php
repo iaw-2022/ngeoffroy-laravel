@@ -23,7 +23,9 @@
                     @foreach ($torneos as $torneo)
                     <tr>
                         <td>{{$torneo->nombre}}</td>
-                        <td>'logo'</td>
+                        <td id="preview">
+                            <img class="myImages" id="myImg" src="{{$torneo->logo}}" alt="" width="140px;" height="90px;"/>
+                        </td>
                         <td>{{$torneo->fecha_ini}}</td>
                         <td>{{$torneo->fecha_fin}}</td>
                         <td>EDITAR</td>

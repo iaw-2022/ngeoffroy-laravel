@@ -17,8 +17,8 @@ class PartidoSeeder extends Seeder
     {
         $data = [
             [
-                "equipo_local" => 2,
-                "equipo_visitante" => 4,
+                "equipo_local" => 'Club Indios',
+                "equipo_visitante" => 'Club Liniers',
                 "resultado_local" => 7,
                 "resultado_visita" => 6,
                 "localidad_id" => 1,
@@ -26,8 +26,8 @@ class PartidoSeeder extends Seeder
                 "estado" => "FINALIZADO"  
             ],
             [
-                "equipo_local" => 5,
-                "equipo_visitante" => 3,
+                "equipo_local" => 'Gremio',
+                "equipo_visitante" => 'Club El Nacional',
                 "resultado_local" => 0,
                 "resultado_visita" => 0,
                 "localidad_id" => 2,
