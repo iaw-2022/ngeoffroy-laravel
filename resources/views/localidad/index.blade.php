@@ -24,8 +24,8 @@
                         <td>{{$localidad->nombre}}</td>
                         <td>{{$localidad->cod_postal}}</td>
                         <td>{{$localidad->cant_habitantes}}</td>
-                        <td>EDITAR</td>
-                        <td>ELIMINAR</td>
+                        <td> <button color="red" type="button" onclick="alert('Botón editar')">EDITAR</button></td>
+                        <td> <button type="button" onclick="alert('Botón eliminar')">ELIMINAR</button></td>
                     @endforeach
                     </tr>
                 </tbody>

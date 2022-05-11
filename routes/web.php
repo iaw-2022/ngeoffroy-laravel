@@ -20,10 +20,8 @@ use App\Http\Controllers\PartidoController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
-});
-
-Route::resource('/dash', DashboardController::class)->middleware('auth');
+    return view('dashboard');
+})->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
