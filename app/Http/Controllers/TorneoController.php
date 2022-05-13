@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\torneo;
-use App\Http\Requests\StoretorneoRequest;
-use App\Http\Requests\UpdatetorneoRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TorneoController extends Controller
@@ -27,7 +26,7 @@ class TorneoController extends Controller
      */
     public function create()
     {
-        //
+        return view('torneo.create');
     }
 
     /**
@@ -36,9 +35,17 @@ class TorneoController extends Controller
      * @param  \App\Http\Requests\StoretorneoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoretorneoRequest $request)
+    public function store(Request $request)
     {
-        //
+        $torneo = new Torneo();
+        $torneo->nombre = $request->get('nombre');
+        $torneo->logo = $request->get('logo');
+        $torneo->fecha_ini = $request->get('fecha_ini');
+        $torneo->fecha_fin = $request->get('fecha_fin');
+
+        $torneo->save();
+
+        return redirect('/torneos');
     }
 
     /**
@@ -58,9 +65,10 @@ class TorneoController extends Controller
      * @param  \App\Models\torneo  $torneo
      * @return \Illuminate\Http\Response
      */
-    public function edit(torneo $torneo)
+    public function edit($id)
     {
-        //
+        $torneo = Torneo::find($id);
+        return view('torneo.edit')->with('torneo', $torneo);
     }
 
     /**
@@ -70,9 +78,17 @@ class TorneoController extends Controller
      * @param  \App\Models\torneo  $torneo
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatetorneoRequest $request, torneo $torneo)
+    public function update(Request $request,$id)
     {
-        //
+        $torneo = Torneo::find($id);
+        $torneo->nombre = $request->get('nombre');
+        $torneo->logo = $request->get('logo');
+        $torneo->fecha_ini = $request->get('fecha_ini');
+        $torneo->fecha_fin = $request->get('fecha_fin');
+
+        $torneo->save();
+
+        return redirect('/torneos');
     }
 
     /**
@@ -81,8 +97,10 @@ class TorneoController extends Controller
      * @param  \App\Models\torneo  $torneo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(torneo $torneo)
+    public function destroy($id)
     {
-        //
+        $torneo = Torneo::find($id);
+        $torneo->delete();
+        return redirect('/torneos');
     }
 }

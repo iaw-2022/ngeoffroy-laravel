@@ -1,19 +1,31 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Equipo | Registro')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Registro de un nuevo equipo</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
+    <form action="/equipos" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="" class="form-label"> Nombre del equipo </label>
+            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label"> Logo del equipo </label>
+            <input id="logo" name="logo" type="file" tabindex="2">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label"> Nombre del estadio del equipo </label>
+            <input id="nombre_estadio" name="nombre_estadio" type="numeric" class="form-control" tabindex="3">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label"> Nombre del capitán del equipo </label>
+            <input id="capitan" name="capitan" type="text" class="form-control" tabindex="4">
+        </div>
+        <a href="/equipos" class="btn btn-secondary" tabindex="5"> VOLVER</a>
+        <button type="submit" class="btn btn-danger" tabindex="4"> REGISTRAR </button>
+    </form>
 @stop

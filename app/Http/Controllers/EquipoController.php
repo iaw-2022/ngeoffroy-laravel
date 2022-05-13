@@ -18,7 +18,7 @@ class EquipoController extends Controller
     public function index()
     {
         $equipos = DB::table('equipos')->get();
-        return view ('equipo.index',['equipos' => $equipos]);
+        return view('equipo.index', ['equipos' => $equipos]);
     }
 
     /**
@@ -26,11 +26,9 @@ class EquipoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($request)
+    public function create()
     {
-        Equipo::create($request->all());
-
-        return back(); 
+        return view('equipo.create');
     }
 
     /**
@@ -39,9 +37,17 @@ class EquipoController extends Controller
      * @param  \App\Http\Requests\StoreequipoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreequipoRequest $request)
+    public function store(Request $request)
     {
-        //
+        $equipo = new Equipo();
+        $equipo->nombre = $request->get('nombre');
+        $equipo->logo = $request->get('logo');
+        $equipo->nombre_estadio = $request->get('nombre_estadio');
+        $equipo->capitan = $request->get('capitan');
+
+        $equipo->save();
+
+        return redirect('/equipos');
     }
 
     /**
@@ -61,9 +67,10 @@ class EquipoController extends Controller
      * @param  \App\Models\equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function edit(equipo $equipo)
+    public function edit($id)
     {
-        //
+        $equipo = Equipo::find($id);
+        return view('equipo.edit')->with('equipo', $equipo);
     }
 
     /**
@@ -73,9 +80,17 @@ class EquipoController extends Controller
      * @param  \App\Models\equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateequipoRequest $request, equipo $equipo)
+    public function update(Request $request, $id)
     {
-        //
+        $equipo = Equipo::find($id);
+        $equipo->nombre = $request->get('nombre');
+        $equipo->logo = $request->get('logo');
+        $equipo->nombre_estadio = $request->get('nombre_estadio');
+        $equipo->capitan = $request->get('capitan');
+
+        $equipo->save();
+
+        return redirect('/equipos');
     }
 
     /**
@@ -84,8 +99,10 @@ class EquipoController extends Controller
      * @param  \App\Models\equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(equipo $equipo)
+    public function destroy($id)
     {
-        //
+        $equipo = Equipo::find($id);
+        $equipo->delete();
+        return redirect('/equipos');
     }
 }

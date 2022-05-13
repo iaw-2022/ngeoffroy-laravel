@@ -27,30 +27,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/equipos', 'App\Http\Controllers\EquipoController@index')->middleware('auth');
-Route::get('/equipos/edit', 'App\Http\Controllers\EquipoController@edit')->middleware('auth');
-Route::get('/equipos/create', 'App\Http\Controllers\EquipoController@create')->middleware('auth');
-Route::get('/equipos/destroy', 'App\Http\Controllers\EquipoController@destroy')->middleware('auth');
-
-Route::get('/jugadores', 'App\Http\Controllers\JugadorController@index')->middleware('auth');
-Route::get('/jugadores/edit', 'App\Http\Controllers\JugadorController@edit')->middleware('auth');
-Route::get('/jugadores/create', 'App\Http\Controllers\JugadorController@create')->middleware('auth');
-Route::get('/jugadores/destroy', 'App\Http\Controllers\JugadorController@destroy')->middleware('auth');
-
-Route::get('/localidades', 'App\Http\Controllers\LocalidadController@index')->middleware('auth');
-Route::get('/localidades/edit', 'App\Http\Controllers\LocalidadController@edit')->middleware('auth');
-Route::get('/localidades/create', 'App\Http\Controllers\LocalidadController@create')->middleware('auth');
-Route::get('/localidades/destroy', 'App\Http\Controllers\LocalidadController@destroy')->middleware('auth');
-
-Route::get('/torneos', 'App\Http\Controllers\TorneoController@index')->middleware('auth');
-Route::get('/torneos/edit', 'App\Http\Controllers\TorneoController@edit')->middleware('auth');
-Route::get('/torneos/create', 'App\Http\Controllers\TorneoController@create')->middleware('auth');
-Route::get('/torneos/destroy', 'App\Http\Controllers\TorneoController@destroy')->middleware('auth');
-
-Route::get('/partidos', 'App\Http\Controllers\PartidoController@index')->middleware('auth');
-Route::get('/partidos/edit', 'App\Http\Controllers\PartidoController@edit')->middleware('auth');
-Route::get('/partidos/create', 'App\Http\Controllers\PartidoController@create')->middleware('auth');
-Route::get('/partidos/destroy', 'App\Http\Controllers\PartidoController@destroy')->middleware('auth');
+Route::resource('/equipos', 'App\Http\Controllers\EquipoController')->middleware('auth');
+Route::resource('/jugadores', 'App\Http\Controllers\JugadorController')->middleware('auth');
+Route::resource('/localidades', 'App\Http\Controllers\LocalidadController')->middleware('auth');
+Route::resource('/torneos', 'App\Http\Controllers\TorneoController')->middleware('auth');
+Route::resource('/partidos', 'App\Http\Controllers\PartidoController')->middleware('auth');
 
 
 require __DIR__.'/auth.php';

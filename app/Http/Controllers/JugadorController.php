@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\jugador;
-use App\Http\Requests\StorejugadorRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdatejugadorRequest;
 use Illuminate\Support\Facades\DB;
 
@@ -27,7 +27,7 @@ class JugadorController extends Controller
      */
     public function create()
     {
-        //
+        return view('jugador.create');
     }
 
     /**
@@ -36,9 +36,19 @@ class JugadorController extends Controller
      * @param  \App\Http\Requests\StorejugadorRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorejugadorRequest $request)
+    public function store(Request $request)
     {
-        //
+        $jugador = new Jugador();
+        $jugador->nombre = $request->get('nombre');
+        $jugador->apellido = $request->get('apellido');
+        $jugador->dni = $request->get('dni');
+        $jugador->fecha_nac = $request->get('fecha_nac');
+        $jugador->sexo = $request->get('sexo');
+        $jugador->puesto = $request->get('puesto');
+
+        $jugador->save();
+
+        return redirect('/jugadores');
     }
 
     /**
@@ -58,9 +68,10 @@ class JugadorController extends Controller
      * @param  \App\Models\jugador  $jugador
      * @return \Illuminate\Http\Response
      */
-    public function edit(jugador $jugador)
+    public function edit($id)
     {
-        //
+        $jugador = Jugador::find($id);
+        return view('jugador.edit')->with('jugador', $jugador);
     }
 
     /**
@@ -70,9 +81,19 @@ class JugadorController extends Controller
      * @param  \App\Models\jugador  $jugador
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatejugadorRequest $request, jugador $jugador)
+    public function update(Request $request,$id)
     {
-        //
+        $jugador = Jugador::find($id);
+        $jugador->nombre = $request->get('nombre');
+        $jugador->apellido = $request->get('apellido');
+        $jugador->dni = $request->get('dni');
+        $jugador->fecha_nac = $request->get('fecha_nac');
+        $jugador->sexo = $request->get('sexo');
+        $jugador->puesto = $request->get('puesto');
+
+        $jugador->save();
+
+        return redirect('/jugadores');
     }
 
     /**
@@ -81,8 +102,10 @@ class JugadorController extends Controller
      * @param  \App\Models\jugador  $jugador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(jugador $jugador)
+    public function destroy($id)
     {
-        //
+        $jugador = Jugador::find($id);
+        $jugador->delete();
+        return redirect('/jugadores');
     }
 }
