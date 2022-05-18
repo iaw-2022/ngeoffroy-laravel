@@ -32,7 +32,7 @@
 
                     <td>
                         <form action="{{ route('partidos.destroy', $partido->id)}}" method="POST">
-                            <a href="/partidos/{{$partido->id}}/edit" class="btn btn-success">EDITAR</a>
+                            <a href="/partidos/{{$partido->id}}/edit" class="btn btn-success" onclick="return confirm('Are you sure you want to delete this item?');">EDITAR</a>
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit"> ELIMINAR</button>

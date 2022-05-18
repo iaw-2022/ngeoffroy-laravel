@@ -62,9 +62,9 @@
     <div class="mb-3">
         <label for="" class="form-label"> Estado de Partido </label>
         <select name="inputEstado" id="inputEstado" class="form-control">
-            <option value="1">FINALIZADO</option>
-            <option value="2">POR JUGAR</option>
-            <option value="3">SUSPENDIDO</option>
+            <option value="FINALIZADO">FINALIZADO</option>
+            <option value="POR JUGAR">POR JUGAR</option>
+            <option value="SUSPENDIDO">SUSPENDIDO</option>
         </select>
     </div>
     <a href="/partidos" class="btn btn-secondary" tabindex="5"> VOLVER</a>
