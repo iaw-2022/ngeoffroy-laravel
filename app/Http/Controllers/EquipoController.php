@@ -44,7 +44,7 @@ class EquipoController extends Controller
 
         $equipo = new Equipo();
         $equipo->nombre = $request->get('nombre');
-        //$equipo->logo = Storage::disk('google')->url($filepath);
+        $equipo->logo = Storage::disk('google')->url($filepath);
         $equipo->nombre_estadio = $request->get('nombre_estadio');
         $equipo->capitan = $request->get('capitan');
 
@@ -91,7 +91,7 @@ class EquipoController extends Controller
 
         $equipo = Equipo::find($id);
         $equipo->nombre = $request->get('nombre');
-        //$equipo->logo = Storage::disk('google')->url($filepath);
+        $equipo->logo = Storage::disk('google')->url($filepath);
         $equipo->nombre_estadio = $request->get('nombre_estadio');
         $equipo->capitan = $request->get('capitan');
 

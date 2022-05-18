@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<form action="/torneos/{{$torneo->id}}" method="POST">
+<form action="/torneos/{{$torneo->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="mb-3">

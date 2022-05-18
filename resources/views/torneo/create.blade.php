@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<form action="/torneos" method="POST">
+<form action="/torneos" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del torneo </label>
