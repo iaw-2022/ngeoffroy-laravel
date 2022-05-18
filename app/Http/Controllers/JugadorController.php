@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\jugador;
+use App\Models\equipo;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdatejugadorRequest;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +28,8 @@ class JugadorController extends Controller
      */
     public function create()
     {
-        return view('jugador.create');
+        $equipos = Equipo::all();
+        return view('jugador.create', compact('equipos'));
     }
 
     /**
@@ -43,8 +45,9 @@ class JugadorController extends Controller
         $jugador->apellido = $request->get('apellido');
         $jugador->dni = $request->get('dni');
         $jugador->fecha_nac = $request->get('fecha_nac');
-        $jugador->sexo = $request->get('sexo');
+        $jugador->sexo = $request->get('inputSexo');
         $jugador->puesto = $request->get('puesto');
+        $jugador->equipo_nombre= $request->get('inputEquipo');
 
         $jugador->save();
 
@@ -71,7 +74,8 @@ class JugadorController extends Controller
     public function edit($id)
     {
         $jugador = Jugador::find($id);
-        return view('jugador.edit')->with('jugador', $jugador);
+        $equipos = Equipo::all();
+        return view('jugador.edit', compact('equipos'))->with('jugador', $jugador);
     }
 
     /**
@@ -88,8 +92,9 @@ class JugadorController extends Controller
         $jugador->apellido = $request->get('apellido');
         $jugador->dni = $request->get('dni');
         $jugador->fecha_nac = $request->get('fecha_nac');
-        $jugador->sexo = $request->get('sexo');
+        $jugador->sexo = $request->get('inputSexo');
         $jugador->puesto = $request->get('puesto');
+        $jugador->equipo_nombre= $request->get('inputEquipo');
 
         $jugador->save();
 

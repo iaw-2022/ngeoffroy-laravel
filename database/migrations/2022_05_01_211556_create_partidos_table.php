@@ -21,11 +21,11 @@ return new class extends Migration
             $table->string('equipo_visitante');
             $table->integer('resultado_local');
             $table->integer('resultado_visita');
-            $table->integer('localidad_id');
-            $table->integer('torneo_id');
+            $table->string('localidad_nombre');
+            $table->string('torneo_nombre');
             $table->string('estado');
-            $table->foreign('localidad_id')->references('id')->on('localidads')->onDelete('cascade');
-            $table->foreign('torneo_id')->references('id')->on('torneos')->onDelete('cascade');
+            $table->foreign('localidad_nombre')->references('nombre')->on('localidads')->onDelete('cascade');
+            $table->foreign('torneo_nombre')->references('nombre')->on('torneos')->onDelete('cascade');
             $table->foreign('equipo_local')->references('nombre')->on('equipos')->onDelete('cascade');
             $table->foreign('equipo_visitante')->references('nombre')->on('equipos')->onDelete('cascade');
         });

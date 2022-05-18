@@ -17,7 +17,7 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->id();
             $table->timestamps();
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->string('logo');
             $table->date('fecha_ini');
             $table->date('fecha_fin');

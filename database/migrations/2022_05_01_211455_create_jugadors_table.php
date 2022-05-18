@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\jugador;
 
 return new class extends Migration
 {
@@ -23,8 +24,8 @@ return new class extends Migration
             $table->date("fecha_nac");
             $table->string("sexo");
             $table->string("puesto");
-            $table->integer('equipo_id');
-            $table->foreign('equipo_id')->references('id')->on('equipos')->ondDelete('cascade');;
+            $table->string('equipo_nombre');
+            $table->foreign('equipo_nombre')->references('nombre')->on('equipos')->ondDelete('cascade');;
         });
     }
 

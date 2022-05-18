@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form action="/equipos" method="POST">
+    <form action="/equipos" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del equipo </label>
@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Logo del equipo </label>
-            <input id="logo" name="logo" type="file" tabindex="2">
+            <input id="logo" name="logo" type="file" tabindex="2" accept=".jpg, .jpeg, .png, .svg, .gif" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del estadio del equipo </label>

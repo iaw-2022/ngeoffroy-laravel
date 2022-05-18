@@ -19,6 +19,7 @@
                     <th>Fecha Nacimiento</th>
                     <th>Sexo</th>
                     <th>Puesto</th>
+                    <th>Equipo</th>
                     <th colspan="2"></th>
                 </tr>
             </thead>
@@ -31,6 +32,7 @@
                     <td>{{$jugador->fecha_nac}}</td>
                     <td>{{$jugador->sexo}}</td>
                     <td>{{$jugador->puesto}}</td>
+                    <td>{{$jugador->equipo_nombre}}</td>
                     <td>
                         <form action="{{ route('jugadores.destroy', $jugador->id)}}" method="POST">
                             <a href="/jugadores/{{$jugador->id}}/edit" class="btn btn-success">EDITAR</a>

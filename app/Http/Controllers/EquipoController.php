@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\equipo;
-use App\Http\Requests\StoreequipoRequest;
-use App\Http\Requests\UpdateequipoRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EquipoController extends Controller
 {
@@ -39,9 +38,13 @@ class EquipoController extends Controller
      */
     public function store(Request $request)
     {
+        $filepath = $_FILES['logo']['name'];
+        $imagen = file_get_contents($request->file('logo'));
+        Storage::disk('google')->put($filepath, $imagen);
+
         $equipo = new Equipo();
         $equipo->nombre = $request->get('nombre');
-        $equipo->logo = $request->get('logo');
+        //$equipo->logo = Storage::disk('google')->url($filepath);
         $equipo->nombre_estadio = $request->get('nombre_estadio');
         $equipo->capitan = $request->get('capitan');
 
@@ -82,9 +85,13 @@ class EquipoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $filepath = $_FILES['logo']['name'];
+        $imagen = file_get_contents($request->file('logo'));
+        Storage::disk('google')->put($filepath, $imagen);
+
         $equipo = Equipo::find($id);
         $equipo->nombre = $request->get('nombre');
-        $equipo->logo = $request->get('logo');
+        //$equipo->logo = Storage::disk('google')->url($filepath);
         $equipo->nombre_estadio = $request->get('nombre_estadio');
         $equipo->capitan = $request->get('capitan');
 

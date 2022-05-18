@@ -29,6 +29,7 @@
                     <td>{{$partido->resultado_local}}</td>
                     <td>{{$partido->resultado_visita}}</td>
                     <td>{{$partido->estado}}</td>
+
                     <td>
                         <form action="{{ route('partidos.destroy', $partido->id)}}" method="POST">
                             <a href="/partidos/{{$partido->id}}/edit" class="btn btn-success">EDITAR</a>
