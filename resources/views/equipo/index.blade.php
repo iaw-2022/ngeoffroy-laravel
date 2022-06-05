@@ -34,7 +34,7 @@
                             <a href="/equipos/{{$equipo->id}}/edit" class="btn btn-success">EDITAR</a>
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit"> ELIMINAR</button>
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Seguro que deseas eliminar este registro?');"> ELIMINAR</button>
                         </form>
                     </td>
                 </tr>
