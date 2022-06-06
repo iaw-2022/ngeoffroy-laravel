@@ -12,7 +12,7 @@
         @method('PUT')
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del equipo </label>
-            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1" value="{{$equipo->nombre}}">
+            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1" value="{{$equipo->nombre}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Logo del equipo </label>
@@ -20,11 +20,11 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del estadio del equipo </label>
-            <input id="nombre_estadio" name="nombre_estadio" type="numeric" class="form-control" tabindex="3" value="{{$equipo->nombre_estadio}}">
+            <input id="nombre_estadio" name="nombre_estadio" type="numeric" class="form-control" tabindex="3" value="{{$equipo->nombre_estadio}}" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del capitán del equipo </label>
-            <input id="capitan" name="capitan" type="text" class="form-control" tabindex="4" value="{{$equipo->capitan}}">
+            <input id="capitan" name="capitan" type="text" class="form-control" tabindex="4" value="{{$equipo->capitan}}" required>
         </div>
         <a href="/equipos" class="btn btn-secondary" tabindex="5"> VOLVER</a>
         <button type="submit" class="btn btn-danger" tabindex="4"> REGISTRAR </button>

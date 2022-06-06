@@ -85,13 +85,21 @@ class EquipoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $filepath = $_FILES['logo']['name'];
-        $imagen = file_get_contents($request->file('logo'));
-        Storage::disk('google')->put($filepath, $imagen);
-
+        
         $equipo = Equipo::find($id);
+        if($_FILES["logo"]["error"] !=4 ){
+            $filepath = $_FILES["logo"]['name'];
+        
+            if (strcmp($filepath, $equipo->logo) !== 0){
+                Storage::disk('google')->delete($equipo->logo);
+                $imagen = file_get_contents($request->file('logo'));
+                Storage::disk('google')->put($filepath, $imagen);
+                $equipo->logo = $filepath;
+                $equipo->logo = Storage::disk('google')->url($filepath);
+            }
+        }
+
         $equipo->nombre = $request->get('nombre');
-        $equipo->logo = Storage::disk('google')->url($filepath);
         $equipo->nombre_estadio = $request->get('nombre_estadio');
         $equipo->capitan = $request->get('capitan');
 

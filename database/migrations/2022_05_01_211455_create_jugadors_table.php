@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string("sexo");
             $table->string("puesto");
             $table->string('equipo_nombre');
-            $table->foreign('equipo_nombre')->references('nombre')->on('equipos')->ondDelete('cascade');;
+            $table->foreign('equipo_nombre')->references('nombre')->on('equipos')->ondDelete('cascade');
         });
     }
 

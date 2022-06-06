@@ -11,7 +11,7 @@
         @csrf
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del equipo </label>
-            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1">
+            <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Logo del equipo </label>
@@ -19,11 +19,11 @@
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del estadio del equipo </label>
-            <input id="nombre_estadio" name="nombre_estadio" type="numeric" class="form-control" tabindex="3">
+            <input id="nombre_estadio" name="nombre_estadio" type="numeric" class="form-control" tabindex="3" required>
         </div>
         <div class="mb-3">
             <label for="" class="form-label"> Nombre del capitán del equipo </label>
-            <input id="capitan" name="capitan" type="text" class="form-control" tabindex="4">
+            <input id="capitan" name="capitan" type="text" class="form-control" tabindex="4" required>
         </div>
         <a href="/equipos" class="btn btn-secondary" tabindex="5"> VOLVER</a>
         <button type="submit" class="btn btn-danger" tabindex="4"> REGISTRAR </button>

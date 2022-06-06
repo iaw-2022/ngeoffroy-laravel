@@ -12,19 +12,19 @@
     @method('PUT')
     <div class="mb-3">
         <label for="" class="form-label"> Nombre del jugador </label>
-        <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1" value="{{$jugador->nombre}}">
+        <input id="nombre" name="nombre" type="text" class="form-control" tabindex="1" value="{{$jugador->nombre}}" required>
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Apellido del jugador </label>
-        <input id="apellido" name="apellido" type="text" class="form-control" tabindex="1" value="{{$jugador->apellido}}">
+        <input id="apellido" name="apellido" type="text" class="form-control" tabindex="1" value="{{$jugador->apellido}}" required>
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> DNI del jugador </label>
-        <input id="dni" name="dni" type="numeric" class="form-control" tabindex="1" value="{{$jugador->dni}}">
+        <input id="dni" name="dni" type="numeric" class="form-control" tabindex="1" value="{{$jugador->dni}}" required>
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Fecha de nacimiento del jugador </label>
-        <input id="fecha_nac" name="fecha_nac" type="date" class="form-control" tabindex="3" value="{{$jugador->fecha_nac}}">
+        <input id="fecha_nac" name="fecha_nac" type="date" class="form-control" tabindex="3" value="{{$jugador->fecha_nac}}" required>
     </div>
     <div class="mb-3">
     <label for="" class="form-label"> Sexo del jugador</label>
@@ -35,7 +35,7 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Puesto del jugador </label>
-        <input id="puesto" name="puesto" type="text" class="form-control" tabindex="5" value="{{$jugador->puesto}}">
+        <input id="puesto" name="puesto" type="text" class="form-control" tabindex="5" value="{{$jugador->puesto}}" required>
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Equipo del jugador </label>

@@ -85,13 +85,19 @@ class TorneoController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $filepath = $_FILES['logo']['name'];
-        $imagen = file_get_contents($request->file('logo'));
-        Storage::disk('google')->put($filepath, $imagen);
-
         $torneo = Torneo::find($id);
+        if($_FILES["logo"]["error"] !=4 ){
+            $filepath = $_FILES["logo"]['name'];
+        
+            if (strcmp($filepath, $torneo->logo) !== 0){
+                Storage::disk('google')->delete($torneo->logo);
+                $imagen = file_get_contents($request->file('logo'));
+                Storage::disk('google')->put($filepath, $imagen);
+                $torneo->logo = $filepath;
+                $torneo->logo = Storage::disk('google')->url($filepath);
+            }
+        }
         $torneo->nombre = $request->get('nombre');
-        $torneo->logo = Storage::disk('google')->url($filepath);
         $torneo->fecha_ini = $request->get('fecha_ini');
         $torneo->fecha_fin = $request->get('fecha_fin');
 

@@ -31,11 +31,11 @@
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Resultado Local </label>
-        <input id="rlocal" name="rlocal" type="numeric" class="form-control" tabindex="1">
+        <input id="rlocal" name="rlocal" type="numeric" class="form-control" tabindex="1" required>
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Resultado Visitante </label>
-        <input id="rvisitante" name="rvisitante" type="numeric" class="form-control" tabindex="2">
+        <input id="rvisitante" name="rvisitante" type="numeric" class="form-control" tabindex="2" required>
     </div>
     <div class="mb-3">
         <label for="" class="form-label"> Localidad del partido </label>
