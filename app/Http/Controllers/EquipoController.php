@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\equipo;
-use App\Http\Requests\StoreequipoRequest;
-use App\Http\Requests\UpdateequipoRequest;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class EquipoController extends Controller
 {
@@ -18,7 +17,7 @@ class EquipoController extends Controller
     public function index()
     {
         $equipos = DB::table('equipos')->get();
-        return view ('equipo.index',['equipos' => $equipos]);
+        return view('equipo.index', ['equipos' => $equipos]);
     }
 
     /**
@@ -26,11 +25,9 @@ class EquipoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($request)
+    public function create()
     {
-        Equipo::create($request->all());
-
-        return back(); 
+        return view('equipo.create');
     }
 
     /**
@@ -39,9 +36,21 @@ class EquipoController extends Controller
      * @param  \App\Http\Requests\StoreequipoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreequipoRequest $request)
+    public function store(Request $request)
     {
-        //
+        $filepath = $_FILES['logo']['name'];
+        $imagen = file_get_contents($request->file('logo'));
+        Storage::disk('google')->put($filepath, $imagen);
+
+        $equipo = new Equipo();
+        $equipo->nombre = $request->get('nombre');
+        $equipo->logo = Storage::disk('google')->url($filepath);
+        $equipo->nombre_estadio = $request->get('nombre_estadio');
+        $equipo->capitan = $request->get('capitan');
+
+        $equipo->save();
+
+        return redirect('/equipos');
     }
 
     /**
@@ -61,9 +70,10 @@ class EquipoController extends Controller
      * @param  \App\Models\equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function edit(equipo $equipo)
+    public function edit($id)
     {
-        //
+        $equipo = Equipo::find($id);
+        return view('equipo.edit')->with('equipo', $equipo);
     }
 
     /**
@@ -73,9 +83,29 @@ class EquipoController extends Controller
      * @param  \App\Models\equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateequipoRequest $request, equipo $equipo)
+    public function update(Request $request, $id)
     {
-        //
+        
+        $equipo = Equipo::find($id);
+        if($_FILES["logo"]["error"] !=4 ){
+            $filepath = $_FILES["logo"]['name'];
+        
+            if (strcmp($filepath, $equipo->logo) !== 0){
+                Storage::disk('google')->delete($equipo->logo);
+                $imagen = file_get_contents($request->file('logo'));
+                Storage::disk('google')->put($filepath, $imagen);
+                $equipo->logo = $filepath;
+                $equipo->logo = Storage::disk('google')->url($filepath);
+            }
+        }
+
+        $equipo->nombre = $request->get('nombre');
+        $equipo->nombre_estadio = $request->get('nombre_estadio');
+        $equipo->capitan = $request->get('capitan');
+
+        $equipo->save();
+
+        return redirect('/equipos');
     }
 
     /**
@@ -84,8 +114,10 @@ class EquipoController extends Controller
      * @param  \App\Models\equipo  $equipo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(equipo $equipo)
+    public function destroy($id)
     {
-        //
+        $equipo = Equipo::find($id);
+        $equipo->delete();
+        return redirect('/equipos');
     }
 }

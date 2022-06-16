@@ -21,8 +21,8 @@ class PartidoSeeder extends Seeder
                 "equipo_visitante" => 'Club Liniers',
                 "resultado_local" => 7,
                 "resultado_visita" => 6,
-                "localidad_id" => 1,
-                "torneo_id"=> 1,
+                "localidad_nombre" => "Bahia Blanca",
+                "torneo_nombre"=> "Invernal",
                 "estado" => "FINALIZADO"  
             ],
             [
@@ -30,8 +30,8 @@ class PartidoSeeder extends Seeder
                 "equipo_visitante" => 'Club El Nacional',
                 "resultado_local" => 0,
                 "resultado_visita" => 0,
-                "localidad_id" => 2,
-                "torneo_id"=> 1,
+                "localidad_nombre" => "Paraná",
+                "torneo_nombre"=> "Invernal",
                 "estado" => "POR JUGAR"  
               ],
         ];

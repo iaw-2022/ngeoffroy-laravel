@@ -23,7 +23,7 @@ class JugadorSeeder extends Seeder
                 "fecha_nac" => "1994-08-13",
                 "sexo" => "masculino",
                 "puesto" => "jardinero derecho",
-                "equipo_id" => 2
+                "equipo_nombre" => "Club Indios"
             ],
             [
                 "nombre" => "Prueba",
@@ -32,7 +32,7 @@ class JugadorSeeder extends Seeder
                 "fecha_nac" => "1990-02-24",
                 "sexo" => "masculino",
                 "puesto" => "catcher",
-                "equipo_id" => 2
+                "equipo_nombre" => "Club El Nacional"
             ],
             [
                 "nombre" => "Prueba",
@@ -41,7 +41,7 @@ class JugadorSeeder extends Seeder
                 "fecha_nac" => "1999-11-19",
                 "sexo" => "femenino",
                 "puesto" => "pitcher",
-                "equipo_id" => 4
+                "equipo_nombre" => "Club Liniers"
             ],
             [
                 "nombre" => "Otra",
@@ -50,7 +50,7 @@ class JugadorSeeder extends Seeder
                 "fecha_nac" => "2003-01-10",
                 "sexo" => "femenino",
                 "puesto" => "primera",
-                "equipo_id" => 5
+                "equipo_nombre" => "Club Liniers"
             ],
             [
                 "nombre" => "Otro",
@@ -59,7 +59,7 @@ class JugadorSeeder extends Seeder
                 "fecha_nac" => "1981-03-03",
                 "sexo" => "masculino",
                 "puesto" => "pitcher",
-                "equipo_id" => 4
+                "equipo_nombre" => "Gremio"
             ],
             [
                 "nombre" => "Prueba",
@@ -68,7 +68,7 @@ class JugadorSeeder extends Seeder
                 "fecha_nac" => "1996-12-13",
                 "sexo" => "femenino",
                 "puesto" => "short",
-                "equipo_id" => 3
+                "equipo_nombre" => "Bahia Softball"
             ]
         ];
 

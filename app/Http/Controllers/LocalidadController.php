@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\localidad;
-use App\Http\Requests\StorelocalidadRequest;
-use App\Http\Requests\UpdatelocalidadRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class LocalidadController extends Controller
@@ -27,7 +26,7 @@ class LocalidadController extends Controller
      */
     public function create()
     {
-        //
+        return view('localidad.create');
     }
 
     /**
@@ -36,9 +35,16 @@ class LocalidadController extends Controller
      * @param  \App\Http\Requests\StorelocalidadRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorelocalidadRequest $request)
+    public function store(Request $request)
     {
-        //
+        $localidad = new Localidad();
+        $localidad->nombre = $request->get('nombre');
+        $localidad->cod_postal = $request->get('cod_postal');
+        $localidad->cant_habitantes = $request->get('cant_habitantes');
+
+        $localidad->save();
+
+        return redirect('/localidades');
     }
 
     /**
@@ -58,9 +64,10 @@ class LocalidadController extends Controller
      * @param  \App\Models\localidad  $localidad
      * @return \Illuminate\Http\Response
      */
-    public function edit(localidad $localidad)
+    public function edit($id)
     {
-        //
+        $localidad = Localidad::find($id);
+        return view('localidad.edit')->with('localidad', $localidad);
     }
 
     /**
@@ -70,9 +77,16 @@ class LocalidadController extends Controller
      * @param  \App\Models\localidad  $localidad
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatelocalidadRequest $request, localidad $localidad)
+    public function update(Request $request,$id)
     {
-        //
+        $localidad = Localidad::find($id);
+        $localidad->nombre = $request->get('nombre');
+        $localidad->cod_postal = $request->get('cod_postal');
+        $localidad->cant_habitantes = $request->get('cant_habitantes');
+
+        $localidad->save();
+
+        return redirect('/localidades');
     }
 
     /**
@@ -81,8 +95,10 @@ class LocalidadController extends Controller
      * @param  \App\Models\localidad  $localidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(localidad $localidad)
+    public function destroy($id)
     {
-        //
+        $localidad = Localidad::find($id);
+        $localidad->delete();
+        return redirect('/localidades');
     }
 }

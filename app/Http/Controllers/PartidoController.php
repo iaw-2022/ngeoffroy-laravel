@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\partido;
-use App\Http\Requests\StorepartidoRequest;
+use App\Models\equipo;
+use App\Models\localidad;
+use App\Models\torneo;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdatepartidoRequest;
 use Illuminate\Support\Facades\DB;
 
@@ -27,6 +30,10 @@ class PartidoController extends Controller
      */
     public function create()
     {
+        $equipos = Equipo::all();
+        $localidades = Localidad::all();
+        $torneos = Torneo::all();
+        return view('partido.create', compact('equipos', 'localidades', 'torneos'));
     }
 
     /**
@@ -35,9 +42,22 @@ class PartidoController extends Controller
      * @param  \App\Http\Requests\StorepartidoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorepartidoRequest $request)
+    public function store(Request $request)
     {
-        //
+        $partido = new Partido();
+        $id_equipolocal = Equipo::first();
+        $id_equipovisitante = Equipo::first();
+        $partido->equipo_local = $request->get('inputELocal');
+        $partido->equipo_visitante = $request->get('inputEVisitante');
+        $partido->resultado_local = $request->get('rlocal');
+        $partido->resultado_visita = $request->get('rvisitante');
+        $partido->localidad_nombre = $request->get('inputLocalidad');
+        $partido->torneo_nombre = $request->get('inputTorneo');
+        $partido->estado = $request->get('inputEstado');
+
+        $partido->save();
+
+        return redirect('/partidos');
     }
 
     /**
@@ -57,8 +77,13 @@ class PartidoController extends Controller
      * @param  \App\Models\partido  $partido
      * @return \Illuminate\Http\Response
      */
-    public function edit(partido $partido)
+    public function edit($id)
     {
+        $partido = Partido::find($id);
+        $equipos = Equipo::all();
+        $localidades = Localidad::all();
+        $torneos= Torneo::all();
+        return view('partido.edit', compact('equipos', 'localidades', 'torneos'))->with('partido', $partido);
     }
 
     /**
@@ -68,9 +93,20 @@ class PartidoController extends Controller
      * @param  \App\Models\partido  $partido
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatepartidoRequest $request, partido $partido)
+    public function update(Request $request,$id)
     {
-        //
+        $partido = Partido::find($id);
+        $partido->equipo_local = $request->get('inputELocal');
+        $partido->equipo_visitante = $request->get('inputEVisitante');
+        $partido->resultado_local = $request->get('rlocal');
+        $partido->resultado_visita = $request->get('rvisitante');
+        $partido->localidad_nombre = $request->get('inputLocalidad');
+        $partido->torneo_nombre = $request->get('inputTorneo');
+        $partido->estado = $request->get('inputEstado');
+
+        $partido->save();
+
+        return redirect('/partidos');
     }
 
     /**
@@ -79,7 +115,10 @@ class PartidoController extends Controller
      * @param  \App\Models\partido  $partido
      * @return \Illuminate\Http\Response
      */
-    public function destroy(partido $partido)
+    public function destroy($id)
     {
+        $partido = Partido::find($id);
+        $partido->delete();
+        return redirect('/partidos');
     }
 }
