@@ -1,4 +1,4 @@
-# Proyecto Inicial
+#  Proyecto Inicial
 
 ## Idea a Implementar
 
