@@ -17,6 +17,7 @@ los partidos, jugadores, torneos y localidades de los diferentes equipos de soft
 ![ERD con entidades coloreadas (notación UML)](https://user-images.githubusercontent.com/81689515/164911475-8f747fb5-714e-481c-b911-9d9f3d5ad29a.png)
 
 
+
 ## Actualizaciones a los datos
 
 > Dentro del proyecto PHP-Laravel:
